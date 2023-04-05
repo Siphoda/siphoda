@@ -11,10 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      PLHAs.hasMany(models.Records)
+    }
+
+    get salaryWithUnit(){
+      return this.income.toLocaleString("id-ID", {style:"currency", currency:"IDR"})
     }
   }
   PLHAs.init({
-    citizenId: DataTypes.INTEGER,
+    citizenId: DataTypes.BIGINT,
     name: DataTypes.STRING,
     dateOfEntry: DataTypes.DATE,
     dateOfBirth: DataTypes.DATE,
@@ -22,10 +27,10 @@ module.exports = (sequelize, DataTypes) => {
     education: DataTypes.STRING,
     marriageStatus: DataTypes.INTEGER,
     income: DataTypes.INTEGER,
-    phone: DataTypes.INTEGER,
+    phone: DataTypes.BIGINT,
     address: DataTypes.STRING,
     reference: DataTypes.STRING,
-    emergencyContact: DataTypes.INTEGER,
+    emergencyContact: DataTypes.BIGINT,
     detectedDate: DataTypes.DATE,
     risk: DataTypes.STRING,
     arvAccess: DataTypes.STRING,
