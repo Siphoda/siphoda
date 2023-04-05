@@ -10,7 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       citizenId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       name: {
         type: Sequelize.STRING
@@ -34,7 +34,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       phone: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       address: {
         type: Sequelize.STRING
@@ -43,7 +43,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       emergencyContact: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       detectedDate: {
         type: Sequelize.DATE

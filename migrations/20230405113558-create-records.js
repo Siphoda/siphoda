@@ -10,13 +10,28 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       adminId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model:{
+            tableName: 'Admins'
+          }, key: 'id'
+        }
       },
-      plhaId: {
-        type: Sequelize.INTEGER
+      PLHAId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'PLHAs'
+          }, key: 'id'
+        }
       },
       serviceId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'Services'
+          }, key: 'id'
+        }
       },
       serviceDate: {
         type: Sequelize.DATE

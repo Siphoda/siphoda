@@ -10,16 +10,13 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       employeeReg: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       name: {
         type: Sequelize.STRING
       },
       phoneNum: {
-        type: Sequelize.INTEGER
-      },
-      userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       createdAt: {
         allowNull: false,

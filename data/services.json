@@ -1,0 +1,34 @@
+[
+    {
+        "name":"expert team service",
+        "cost":10000000
+    },
+    {
+        "name":"home visit service",
+        "cost":15000000
+    },
+    {
+        "name":"hospital visit service",
+        "cost":12500000
+    },
+    {
+        "name":"peer group meeting",
+        "cost":1000000
+    },
+    {
+        "name":"halfway house service",
+        "cost":40000000
+    },
+    {
+        "name":"advocacy assistance",
+        "cost":15600000
+    },
+    {
+        "name":"groceries assistance",
+        "cost":1567000
+    },
+    {
+        "name":"venture capital assistance",
+        "cost":45000000
+    }
+]
