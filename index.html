@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Siphoda</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="bg-gray-200">
+    <header class="bg-white shadow">
+      <div class="container mx-auto px-4">
+        <nav class="flex justify-between items-center py-4">
+          <div>
+            <a href="#" class="font-bold text-xl text-gray-800">SIPHODA</a>
+          </div>
+          <div>
+            <a href="./about.html" class="text-gray-500 hover:text-gray-600 px-3 py-2">About</a>
+            <a href="#" class="text-gray-500 hover:text-gray-600 px-3 py-2">Services</a>
+            <a href="/login.html" class="inline-flex items-center bg-gray-800 text-white rounded-full px-3 py-2 hover:bg-gray-700">
+              <span>Login</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main class="max-w-4xl mx-auto py-24" style="min-height: 400vh;">
+      <div class="text-center">
+        <h1 class="text-4xl text-gray-800 font-bold leading-tight mb-4">You Are Not Alone</h1>
+        <p class="text-lg text-gray-600">We're here to support you every step of the way</p>
+      </div>
+      <div>
+        <hiv-chart></hiv-chart>
+        <script src="./js/HIVChart.js"></script>
+      </div>
+      <div class="flex justify-between mt-8">
+        <div class="w-1/3">
+          <h2 class="text-lg text-gray-800 font-bold mb-4">About HIV/AIDS</h2>
+          <p class="text-gray-600 leading-loose">HIV is a virus that attacks the immune system, which is our body's natural defence against illness. If left untreated, HIV can lead to AIDS (Acquired Immunodeficiency Syndrome). However, with early diagnosis and effective treatment, people with HIV can live long, healthy lives.</p>
+        </div>
+        <div class="w-1/3">
+          <h2 class="text-lg text-gray-800 font-bold mb-4">Our Services</h2>
+          <ul class="list-disc text-gray-600 leading-loose">
+            <li>Free HIV testing and counselling</li>
+            <li>Access to HIV medication</li>
+            <li>Support groups for people living with HIV/AIDS</li>
+            <li>Education and awareness campaigns</li>
+          </ul>
+        </div>
+        <div class="w-1/3">
+          <h2 class="text-lg text-gray-800 font-bold mb-4">Contact Us</h2>
+          <p class="text-gray-600 leading-loose">123 Main Street<br>New York, NY 10001<br>Phone: (123) 456-7890<br>Email: info@hivaids.com</p>
+        </div>
+      </div>
+    </main>
+    <footer class="bg-gray-800 text-gray-500">
+      <div class="container mx-auto px-4 py-6">
+          <p class="text-center">&copy; 2023 HIV/AIDS.
+      </div>
+    </footer>
+  </body>
+</html>
+<script>
+  // Get the navbar element
+  var navbar = document.querySelector("header");
+
+  // Get the initial position of the navbar
+  var navbarPosition = navbar.offsetTop;
+
+  // Function to check if the user has scrolled past the navbar
+  function checkScrollPosition() {
+    if (window.pageYOffset >= navbarPosition) {
+      navbar.classList.add("fixed", "top-0", "left-0", "w-full");
+    } else {
+      navbar.classList.remove("fixed", "top-0", "left-0", "w-full");
+    }
+  }
+
+  // Add an event listener to the window object to check the scroll position
+  window.addEventListener("scroll", checkScrollPosition);
