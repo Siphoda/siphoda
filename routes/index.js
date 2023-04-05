@@ -8,9 +8,7 @@ router.get('/', (req, res) => {
 
 router.get('/plhas', Controller.getAllPLHAs)//untuk menampilkan semua data plhas
 
-router.get('/records', (req, res) => { //untuk menampilkan semua data records
-    res.send('Hello World!')
-})
+router.get('/records', Controller.getRecords)//untuk menampilkan semua data records
 
 router.get('/plhas/add', (req, res) => { //untuk menampilkan form create plhas
     res.send('Hello World!')

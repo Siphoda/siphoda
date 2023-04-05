@@ -17,7 +17,19 @@ module.exports = (sequelize, DataTypes) => {
     get salaryWithUnit(){
       return this.income.toLocaleString("id-ID", {style:"currency", currency:"IDR"})
     }
+
+    get age() {
+      const today = new Date();
+      const birthDate = new Date(this.dateOfBirth);
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const month = today.getMonth() - birthDate.getMonth();
+      if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+      return age;
+    }
   }
+  
   PLHAs.init({
     citizenId: DataTypes.BIGINT,
     name: DataTypes.STRING,
