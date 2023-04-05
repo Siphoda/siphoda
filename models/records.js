@@ -11,11 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Records.belongsTo(models.Admins)
+      Records.belongsTo(models.PLHAs)
+      Records.belongsTo(models.Services)
     }
   }
   Records.init({
     adminId: DataTypes.INTEGER,
-    plhaId: DataTypes.INTEGER,
+    PLHAId: DataTypes.INTEGER,
     serviceId: DataTypes.INTEGER,
     serviceDate: DataTypes.DATE,
     note: DataTypes.TEXT

@@ -11,13 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Admins.belongsTo(models.Users)
+      Admins.hasMany(models.Records)
     }
   }
   Admins.init({
     employeeReg: DataTypes.INTEGER,
     name: DataTypes.STRING,
-    phoneNum: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+    phoneNum: DataTypes.BIGINT,
+    UserId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Admins',
