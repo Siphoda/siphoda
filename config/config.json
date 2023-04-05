@@ -5,7 +5,7 @@
     "database": "siphoda-db",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "port": 3001
+    "port": 5432
   },
   "test": {
     "username": "root",
