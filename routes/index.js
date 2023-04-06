@@ -2,9 +2,7 @@ const Controller = require('../controllers/controller');
 
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
-    res.send('hello world')
-})
+router.get('/', Controller.homepage)
 
 router.get('/registrasi', Controller.registForm)
 
@@ -36,25 +34,19 @@ router.get('/records/add', Controller.formRecord)//untuk menampilkan form create
 
 router.post('/records/add', Controller.saveNewRecord)//untuk menyimpan create new records
 
+router.get('/records/:recordId/delete', Controller.deleteRecord)
+
 router.get('/plhas/:plhasId/records', (req, res) => { //untuk menampilkan riwayat pelayanan 1 pasien
     res.send('Hello World!')
 })
 
-router.get('/plhas/:plhasId/edit', (req, res) => { //untuk menampilkan form edit plha
-    res.send('Hello World!')
-})
+router.get('/plhas/:plhasId/edit', Controller.formEditDataPatient)//untuk menampilkan form edit plha
 
-router.post('/plhas/:plhasId/edit', (req, res) => { //untuk menyimpan hasil perubahan data plha
-    res.send('Hello World!')
-})
+router.post('/plhas/:plhasId/edit', Controller.saveEditPLHA)//untuk menyimpan hasil perubahan data plha
 
 
-router.get('/logout', (req, res) => { //untuk logout
-    res.send('Hello World!')
-})
+router.get('/logout', Controller.logout)//untuk logout
 
-router.post('/logout', (req, res) => { //untuk logout
-    res.send('Hello World!')
-})
+
 
 module.exports = router

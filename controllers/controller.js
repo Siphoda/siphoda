@@ -1,9 +1,23 @@
 const {Services, Admins, PLHAs, Records, Users} = require('../models');
 let bcrypt = require('bcryptjs');
+const { Op } = require("sequelize");
 
 class Controller{
+    static homepage(req, res){
+        res.render('homepage')
+    }
+    
     static getAllPLHAs(req, res){
-        PLHAs.findAll()
+        let {name} = req.query
+        let option
+        if(name){
+            option = {where : {
+                name: {
+                    [Op.iLike]:`%${name}%`
+                }
+            }}
+        }
+        PLHAs.findAll(option)
         .then(dataPLHA => {
             res.render('allPLHA', {dataPLHA})
         })
@@ -160,10 +174,80 @@ class Controller{
             ]
         })
         .then(data => {
-            res.send(data)
+            res.render('showrecords', {data})
         })
         .catch(err => {
             res.send(err)
+        })
+    }
+
+    static deleteRecord(req, res){
+        // console.log(req.params);
+        let {recordId} = req.params
+        Records.destroy({where: {id: recordId}})
+        .then(data => {
+            res.redirect('/records')
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
+    static formEditDataPatient(req, res){
+        console.log(req.params);
+        let {errors} = req.query
+        let {plhasId} = req.params
+        PLHAs.findByPk(+plhasId)
+        .then(dataPLHA => {
+            res.render('formeditPLHA', {dataPLHA ,errors})
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
+    static saveEditPLHA(req, res){
+        let {plhasId} = req.params
+        let newPLHA = {
+            citizenId: req.body.citizenId,
+            name: req.body.name,
+            dateOfEntry: req.body.dateOfEntry,
+            dateOfBirth: req.body.dateOfBirth,
+            gender: req.body.gender,
+            education: req.body.education,
+            marriageStatus: req.body.marriageStatus,
+            income: req.body.income,
+            phone: req.body.phone,
+            address: req.body.address,
+            reference: req.body.reference,
+            emergencyContact: req.body.emergencyContact,
+            detectedDate: req.body.detectedDate,
+            risk: req.body.risk,
+            arvAccess: req.body.arvAccess,
+            arvMed: req.body.arvMed,
+        }
+
+        PLHAs.update(newPLHA, {where: {id: plhasId}})
+        .then(data => {
+            res.redirect('/plhas')
+        })
+        .catch(err => {
+            if(err.name == 'SequelizeValidationError'){
+                const errors = err.errors.map(e => e.message)
+                res.redirect(`/registrasi?errors=${errors}`)
+            } else {
+                res.send(err)
+            }
+        })
+    }
+
+    static logout(req, res){
+        req.session.destroy((err)=> {
+            if(err){
+                res.send(err)
+            }else {
+                res.redirect('/')
+            }
         })
     }
 }

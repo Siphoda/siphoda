@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Form Edit PLHA</title>
+</head>
+<body>
+    <h1>
+        Edit PLHA
+    </h1>
+    <br>
+    <br>
+    <% if (errors) { %>
+        <div>
+       <% errors.split(',').forEach(e => { %>
+          <%= e %> <br>
+          <% }) %>
+        </div>
+      <% } %>
+    <br><br>
+     <form action="/plhas/add" method="post">
+        <div>
+            <label for="citizen">CitizenID</label>
+            <input type="number" name="citizenId" value="<%= dataPLHA.citizenId %>">
+        </div>
+        <div>
+            <label for="nametext">Name  :</label>
+            <input type="text" name="name" id="nametext" value="<%= dataPLHA.name %>">
+        </div>
+        <div>
+            <label for="doe">Date of Entry  :</label>
+            <input type="date" name="dateOfEntry" id="doe" value="<%= dataPLHA.dateOfEntry.toISOString().slice(0,10) %>">
+        </div>
+        <div>
+            <label for="dob">Date of Birth    :</label>
+            <input type="date" name="dateOfBirth" id="dob" value="<%= dataPLHA.dateOfBirth.toISOString().slice(0,10) %>">
+        </div>
+        <div>
+            <label for="gender">Gender  :</label>
+            <select name="gender" id="gender">
+                <option value="" disabled>Please select your gender</option>
+                <% ['Female', 'Male'].forEach(e => { %>
+                    <option value="<%= e %>" <%= e == dataPLHA.gender ? 'selected' : '' %>><%= e %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="education">Education :</label>
+            <input type="text" name="education" id="education" value="<%= dataPLHA.education %>">
+        </div>
+        <div>
+            <label for="marriageStatus">Marriage Status :</label>
+            <select name="marriageStatus" id="marriageStatus">
+                <option value="" disabled>Please select your marriage status</option>
+                <% ['Unmarried', 'Married', 'Divorced'].forEach((e ,i) => { %>
+                    <option value="<%= i+1 %>" <%= dataPLHA.marriageStatus == (i + 1 ) ? 'selected':'' %>><%= e %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="income">Income :</label>
+            <input type="number" name="income" id="income" value="<%= dataPLHA.income %>">
+        </div>
+        <div>
+            <label for="phone">Phone Number :</label>
+            <input type="number" name="phone" id="phone" value="<%= dataPLHA.phone %>">
+        </div>
+        <div>
+            <label for="address">Address :</label>
+            <input type="text" name="address" id="address" value="<%= dataPLHA.address %>">
+        </div>
+        <div>
+            <label for="reference">Reference :</label>
+            <select name="reference" id="reference">
+                <option value="" disabled>Please select reference</option>
+                <% ["Public health center", "Hospital"].forEach(e => { %>
+                    <option value="<%= e %>" <%= dataPLHA.reference == e ? 'selected' : '' %>><%= e %></option>
+                 
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="emergency">Emergency Contact :</label>
+            <input type="number" name="emergencyContact" value="<%= dataPLHA.emergencyContact %>">
+        </div>
+        <div>
+            <label for="dd">Detected Date :</label>
+            <input type="date" name="detectedDate" id="dd" value="<%= dataPLHA.detectedDate.toISOString().slice(0,10) %>">
+        </div>
+        <div>
+            <label for="risk">Risk :</label>
+            <select name="risk" id="risk">
+                <option value="" selected disabled>Please select risk</option>
+                <% ["Heterosexual","Homosexual","IDU","Blood transfusion","Perinatal","Hemophilia","Medical instrument","Unknown"].forEach(e => { %>
+                    <option value="<%= e %>" <%= dataPLHA.risk == e ? 'selected' : '' %> ><%= e %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="arvacc">Arv Access :</label>
+            <select name="arvAccess" id="arvacc">
+                <option value="" selected disabled>Please select your arc access</option>
+                <% ["Public health center", "Hospital"].forEach(e => { %>
+                    <option value="<%= e %>" <%= dataPLHA.arvAccess == e ? 'selected' : '' %> ><%= e %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="arvmed">Arv Medications :</label>
+            <select name="arvMed" id="arvmed">
+                <option value="" selected disabled>Please select your arv med</option>
+                <% ["TENOLAMIEFA","DUVIEFA","DUVINEVI","TENOLAMINEVI","TENOEMTRIEFA","TENOEMTRINEVI","TENOLAMIALU"].forEach(e => { %>
+                    <option value="<%= e %>" <%= dataPLHA.arvMed == e ? 'selected' : '' %> ><%= e %></option>
+                 
+                <% }) %>
+            </select>
+        </div>
+        <button type="submit">Save</button>
+     </form> 
+</body>
+</html>
