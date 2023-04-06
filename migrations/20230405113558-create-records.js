@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      adminId: {
+      AdminId: {
         type: Sequelize.INTEGER,
         references: {
           model:{
@@ -25,7 +25,7 @@ module.exports = {
           }, key: 'id'
         }
       },
-      serviceId: {
+      ServiceId: {
         type: Sequelize.INTEGER,
         references: {
           model: {

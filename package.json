@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/Siphoda/siphoda#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "d3": "^7.8.4",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "pg": "^8.10.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.30.0"

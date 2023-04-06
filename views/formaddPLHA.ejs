@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Form Add PLHA</title>
+</head>
+<body>
+    <h1>
+        Add PLHA
+    </h1>
+    <br>
+    <br>
+    <% if (errors) { %>
+        <div>
+       <% errors.split(',').forEach(e => { %>
+          <%= e %> <br>
+          <% }) %>
+        </div>
+      <% } %>
+    <br><br>
+     <form action="/plhas/add" method="post">
+        <div>
+            <label for="citizen">CitizenID</label>
+            <input type="number" name="citizenId">
+        </div>
+        <div>
+            <label for="nametext">Name  :</label>
+            <input type="text" name="name" id="nametext">
+        </div>
+        <div>
+            <label for="doe">Date of Entry  :</label>
+            <input type="date" name="dateOfEntry" id="doe">
+        </div>
+        <div>
+            <label for="dob">Date of Birth    :</label>
+            <input type="date" name="dateOfBirth" id="dob">
+        </div>
+        <div>
+            <label for="gender">Gender  :</label>
+            <select name="gender" id="gender">
+                <option value="" selected disabled>Please select your gender</option>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+            </select>
+        </div>
+        <div>
+            <label for="education">Education :</label>
+            <input type="text" name="education" id="education">
+        </div>
+        <div>
+            <label for="marriageStatus">Marriage Status :</label>
+            <select name="marriageStatus" id="marriageStatus">
+                <option value="" selected disabled>Please select your marriage status</option>
+                <option value="1">Unmarried</option>
+                <option value="2">Married</option>
+                <option value="3">Divorced</option>
+            </select>
+        </div>
+        <div>
+            <label for="income">Income :</label>
+            <input type="number" name="income" id="income">
+        </div>
+        <div>
+            <label for="phone">Phone Number :</label>
+            <input type="number" name="phone" id="phone">
+        </div>
+        <div>
+            <label for="address">Address :</label>
+            <input type="text" name="address" id="address">
+        </div>
+        <div>
+            <label for="reference">Reference :</label>
+            <select name="reference" id="reference">
+                <option value="Public health center">Public health center</option>
+                <option value="Hospital">Hospital</option>
+            </select>
+        </div>
+        <div>
+            <label for="emergency">Emergency Contact :</label>
+            <input type="number" name="emergencyContact">
+        </div>
+        <div>
+            <label for="dd">Detected Date :</label>
+            <input type="date" name="detectedDate" id="dd">
+        </div>
+        <div>
+            <label for="risk">Risk :</label>
+            <select name="risk" id="risk">
+                <option value="" selected disabled>Please select risk</option>
+                <option value="Heterosexual">Heterosexual</option>
+                <option value="Homosexual">Homosexual</option>
+                <option value="IDU">IDU</option>
+                <option value="Blood transfusion">Blood transfusion</option>
+                <option value="Perinatal">Perinatal</option>
+                <option value="Hemophilia">Hemophilia</option>
+                <option value="Medical instrument">Medical instrument</option>
+                <option value="Unknown">Unknown</option>
+            </select>
+        </div>
+        <div>
+            <label for="arvacc">Arv Access :</label>
+            <select name="arvAccess" id="arvacc">
+                <option value="" selected disabled>Please select your arc access</option>
+                <option value="Public health center">Public health center</option>
+                <option value="Hospital">Hospital</option>
+            </select>
+        </div>
+        <div>
+            <label for="arvmed">Arv Medications :</label>
+            <select name="arvMed" id="arvmed">
+                <option value="" selected disabled>Please select your arv med</option>
+                <option value="TENOLAMIEFA">TENOLAMIEFA</option>
+                <option value="DUVIEFA">DUVIEFA</option>
+                <option value="DUVINEVI">DUVINEVI</option>
+                <option value="TENOLAMINEVI">TENOLAMINEVI</option>
+                <option value="TENOEMTRIEFA">TENOEMTRIEFA</option>
+                <option value="TENOEMTRINEVI">TENOEMTRINEVI</option>
+                <option value="TENOLAMIALU">TENOLAMIALU</option>
+            </select>
+        </div>
+        <button type="submit">Save</button>
+     </form> 
+</body>
+</html>

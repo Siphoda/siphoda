@@ -17,9 +17,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Records.init({
-    adminId: DataTypes.INTEGER,
+    AdminId: DataTypes.INTEGER,
     PLHAId: DataTypes.INTEGER,
-    serviceId: DataTypes.INTEGER,
+    ServiceId: DataTypes.INTEGER,
     serviceDate: DataTypes.DATE,
     note: DataTypes.TEXT
   }, {

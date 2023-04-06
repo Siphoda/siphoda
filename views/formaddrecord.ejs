@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add record</title>
+</head>
+<body>
+    <h1>Add record</h1>
+    <br>
+    <br><br>
+    <!-- ini nanti tempat tampil error -->
+    <br>
+    <br>
+    <form action="/records/add" method="post">
+        <div>
+            <label for="admin">Admin</label>
+            <select name="adminId" id="admin">
+                <option value="" selected disabled>Please select your Id</option>
+                <% admins.forEach(e => { %>
+                 <option value="<%= e.id %>"><%= e.name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="PLHA">Patient</label>
+            <select name="PLHAId" id="PLHA">
+                <option value="" selected disabled>Please select patient</option>
+                <% patient.forEach(e => { %>
+                 <option value="<%= e.id %>"><%= e.name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="service">Services Type</label>
+            <select name="serviceId" id="service">
+                <option value="" selected disabled>Please select service</option>
+                <% services.forEach(e => { %>
+                 <option value="<%= e.id %>"><%= e.name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="servicedate">Service Date</label>
+            <input type="date" name="serviceDate" id="servicedate">
+        </div>
+        <div>
+            <label for="note">Note</label>
+            <input type="text" name="note">
+        </div>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
